@@ -66,7 +66,7 @@ const SearchBar = <T extends string = string>({
         onBlur={handleInputBlur}
         type="text"
         placeholder={placeholder}
-        aria-label="Search for words, phrases and meanings"
+        aria-label="Type to search..."
         className="flex-1 bg-transparent border-0 text-white placeholder:text-[var(--text-muted)] hero-search-input"
       />
       <Button type="submit" className="bg-primary hover:bg-primary/90 text-white ml-4">
@@ -78,13 +78,13 @@ const SearchBar = <T extends string = string>({
 
 const Hero: React.FC<HeroProps> = ({ onSearch = () => {} }): React.JSX.Element => {
   return (
-    <div className="relative w-full max-w-5xl mx-auto rounded-[var(--radius-custom)] overflow-hidden mt-8">
+    <div className="relative w-full max-w-5xl mx-auto rounded-none md:rounded-[var(--radius-custom)] overflow-hidden mt-8">
       <img src="/task1/hero-bg.png" alt="Abstract background with search interface overlay" className="w-full h-96 object-cover" />
-      <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center px-24">
-        <h1 className="text-3xl md:text-5xl font-bold text-white tracking-[-3px]">
+      <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center px-4 md:px-24">
+        <h1 className="text-3xl md:text-3xl lg:text-5xl font-bold text-white tracking-0 md:tracking-[-3px] px-4">
           Search for words, phrases and meanings
         </h1>
-        <SearchBar initialValue="" onSearch={onSearch} />
+        <SearchBar initialValue="" onSearch={onSearch} className="w-[80%] md:w-full max-w-xl" />
       </div>
     </div>
   );
